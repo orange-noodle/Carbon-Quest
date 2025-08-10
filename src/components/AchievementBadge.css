@@ -1,0 +1,59 @@
+.achievement-badge {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+  pointer-events: none;
+  animation: float 3s ease-in-out infinite;
+  will-change: transform; /* Optimize for animations */
+  transform: translateZ(0); /* Force hardware acceleration */
+}
+
+.achievement-emoji {
+  font-size: 16px;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+}
+
+/* Optimize float animation for smoother movement */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) scale(1) translateZ(0);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.03) translateZ(0); /* Reduced movement for smoother effect */
+  }
+}
+
+/* Add a subtle glow effect */
+.achievement-badge::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(8px);
+  animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}

@@ -1,0 +1,42 @@
+.game-world {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  background: var(--color-white);
+  border-radius: var(--spacing-3);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.game-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Removed the plain gray background since we now draw a beautiful gradient on the canvas */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .game-world {
+    width: 700px;
+    height: 525px;
+  }
+  
+  .game-canvas {
+    width: 700px;
+    height: 525px;
+  }
+}
+
+@media (max-width: 900px) {
+  .game-world {
+    width: 600px;
+    height: 450px;
+  }
+  
+  .game-canvas {
+    width: 600px;
+    height: 450px;
+  }
+}

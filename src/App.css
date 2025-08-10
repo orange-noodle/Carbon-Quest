@@ -1,0 +1,153 @@
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.game-container {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  max-width: 100vw;
+  height: calc(100vh - 40px);
+  box-sizing: border-box;
+}
+
+.game-world {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  min-height: 700px;
+  height: calc(100vh - 120px);
+  max-height: calc(100vh - 120px);
+}
+
+.game-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 16px;
+}
+
+.progress-panel {
+  width: 320px;
+  min-width: 320px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-y: auto;
+  height: calc(100vh - 120px);
+  max-height: calc(100vh - 120px);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .game-container {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 40px);
+  }
+  
+  .game-world {
+    height: 70vh;
+    min-height: 600px;
+    max-height: 70vh;
+  }
+  
+  .progress-panel {
+    width: 100%;
+    min-width: auto;
+    height: auto;
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    padding: 16px;
+    gap: 16px;
+  }
+  
+  .game-world {
+    height: 60vh;
+    min-height: 500px;
+    max-height: 60vh;
+  }
+  
+  .progress-panel {
+    padding: 20px;
+    height: auto;
+    max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .game-world {
+    height: 55vh;
+    min-height: 400px;
+    max-height: 55vh;
+  }
+  
+  .progress-panel {
+    padding: 16px;
+    height: auto;
+    max-height: none;
+  }
+}
+
+/* Loading and Error States */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-size: 1.2rem;
+  color: #ef4444;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Scrollbar Styling */
+.progress-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.progress-panel::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.progress-panel::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+
+.progress-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
